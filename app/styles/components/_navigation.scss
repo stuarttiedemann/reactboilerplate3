@@ -1,0 +1,16 @@
+.top-bar {
+  background-color: $nav-background;
+  .top-bar-left, .top-bar-right {
+    color: $nav-text-color;
+    ul {
+      background-color: $nav-background;
+    }
+  }
+  .top-bar-right {
+    padding-top: 5px;
+    padding-right:15px;
+  }
+  .active {
+    font-weight: bold;
+  }
+}
