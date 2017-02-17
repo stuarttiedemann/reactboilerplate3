@@ -10,6 +10,6 @@ require('style!css!sass!applicationStyles');
 
 
 ReactDOM.render(
-  <p>React BoilerPlate 3</p>,
+  <p>React Todos.</p>,
   document.getElementById('app')
 );
