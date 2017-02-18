@@ -15,19 +15,23 @@ var TodoApp = React.createClass({
       todos: [
         {
           id: uuid(),
-          text: 'Walk the dog'
+          text: 'Walk the dog',
+          completed: false
         },
         {
           id: uuid(),
-          text: 'Clean the yard'
+          text: 'Clean the yard',
+          completed: true
         },
         {
           id: uuid(),
-          text: 'Learn Python'
+          text: 'Learn Python',
+          completed: false
         },
         {
           id: uuid(),
-          text: 'Build a trading bot'
+          text: 'Build a trading bot',
+          completed: true
         }
       ]
     };
