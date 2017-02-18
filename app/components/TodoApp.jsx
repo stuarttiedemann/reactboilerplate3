@@ -3,6 +3,10 @@ var TodoList = require('TodoList');
 var AddTodo = require('AddTodo');
 var TodoSearch = require('TodoSearch');
 
+// node package to generate unique time stamped id's
+// npm install node-uuid --save-dev
+var uuid = require('node-uuid');
+
 var TodoApp = React.createClass({
   getInitialState: function () {
     return {
@@ -10,26 +14,34 @@ var TodoApp = React.createClass({
       searchText: '',
       todos: [
         {
-          id: 1,
+          id: uuid(),
           text: 'Walk the dog'
         },
         {
-          id: 2,
+          id: uuid(),
           text: 'Clean the yard'
         },
         {
-          id: 3,
+          id: uuid(),
           text: 'Learn Python'
         },
         {
-          id: 4,
+          id: uuid(),
           text: 'Build a trading bot'
         }
       ]
     };
   },
   handleAddToDo: function (text) {
-    alert('new todo:' + text);
+    this.setState({
+      todos: [
+        ...this.state.todos,
+        {
+          id: uuid(),
+          text: text
+        }
+      ]
+    });
   },
   handleSearch: function (showCompleted, searchText) {
     this.setState({
