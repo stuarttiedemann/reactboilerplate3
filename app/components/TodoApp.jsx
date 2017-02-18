@@ -6,35 +6,18 @@ var TodoSearch = require('TodoSearch');
 // node package to generate unique time stamped id's
 // npm install node-uuid --save-dev
 var uuid = require('node-uuid');
+var TodoAPI = require('TodoAPI');
 
 var TodoApp = React.createClass({
   getInitialState: function () {
     return {
       showCompleted: false,
       searchText: '',
-      todos: [
-        {
-          id: uuid(),
-          text: 'Walk the dog',
-          completed: false
-        },
-        {
-          id: uuid(),
-          text: 'Clean the yard',
-          completed: true
-        },
-        {
-          id: uuid(),
-          text: 'Learn Python',
-          completed: false
-        },
-        {
-          id: uuid(),
-          text: 'Build a trading bot',
-          completed: true
-        }
-      ]
+      todos: TodoAPI.getTodos()
     };
+  },
+  componentDidUpdate: function () {
+    TodoAPI.setTodos(this.state.todos);
   },
   handleToggle: function (id) {
     var updatedTodos = this.state.todos.map((todo) => {
