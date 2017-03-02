@@ -1,15 +1,19 @@
 var React = require('react');
+var {connect} = require('react-redux');
+var actions = require('actions');
 
-var AddTodo = React.createClass({
+export var AddTodo = React.createClass({
   onFormSubmit: function(e) {
     e.preventDefault();
-    var text = this.refs.text.value;
+    var text = this.refs.todoText.value;
+    console.log(text);
+    var {dispatch} = this.props;
 
     if (text.length > 0) {
       // Clear the input field
-      this.refs.text.value = '';
+      this.refs.todoText.value = '';
       // Make the text available to the parent TodoApp.jsx container
-      this.props.onAddTodo(text);
+      dispatch(actions.addTodo(text));
     } else {
       this.refs.text.focus();
     }
@@ -19,7 +23,7 @@ var AddTodo = React.createClass({
       <div className="container__footer">
         <form onSubmit={this.onFormSubmit}>
           <div>
-            <input type="text" ref="text" placeholder="Enter a new todo" />
+            <input type="text" ref="todoText" placeholder="Enter a new todo" />
           </div>
           <div>
             <button className="button expanded">Add Todo</button>
@@ -30,4 +34,4 @@ var AddTodo = React.createClass({
   }
 });
 
-module.exports = AddTodo;
+export default connect()(AddTodo);
