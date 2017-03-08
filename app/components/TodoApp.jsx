@@ -1,7 +1,8 @@
 var React = require('react');
 import TodoList from 'TodoList';
 import AddTodo from 'AddTodo';
-var TodoSearch = require('TodoSearch');
+import TodoSearch from 'TodoSearch';
+
 var moment = require('moment');
 
 // node package to generate unique time stamped id's
